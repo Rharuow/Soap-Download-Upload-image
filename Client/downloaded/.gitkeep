@@ -1,0 +1,7 @@
+# exclude everything
+Client/downloaded/*
+Server/FileTransfer/uploaded/*
+
+# exception to the rule
+!Client/downloaded/.gitkeep 
+!Server/FileTransfer/uploaded/.gitkeep 

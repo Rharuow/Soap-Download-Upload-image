@@ -13,10 +13,12 @@ import javax.xml.ws.WebServiceException;
 
 @WebService
 public class FileTransfererImpl implements FileTransferer {
+  String curDir = System.getProperty("user.dir");
+
   @WebMethod
   public void upload(String fileName, byte[] imageBytes) {
 
-    String filePath = "/home/rharuow/Documents/IFRN/DSD/SOAP/Server/FileTransfer/uploaded/" + fileName;
+    String filePath = curDir + "/Server/FileTransfer/uploaded/" + fileName;
 
     try {
       FileOutputStream fos = new FileOutputStream(filePath);
@@ -34,7 +36,7 @@ public class FileTransfererImpl implements FileTransferer {
 
   @WebMethod
   public byte[] download(String fileName) {
-    String filePath = "/home/rharuow/Documents/IFRN/DSD/SOAP/Server/FileTransfer/static/" + fileName;
+    String filePath = curDir + "/Server/FileTransfer/static/" + fileName;
     System.out.println("Sending file: " + filePath);
 
     try {
